@@ -12,18 +12,27 @@
     </video>
     
     <script>
-       let constraints = {'video': true, 'audio': true} 
+        //----> getUserMedia: Video and audio permission and open a video tab
+    //    let constraints = {'video': true, 'audio': true} 
 
-       navigator.mediaDevices.getDisplayMedia(constraints)
-       .then(function(stream){
-            let video = document.querySelector('video');
-            video.srcObject=stream;
-            video.play();
-            // console.log(stream)
-       })
-       .catch(function(err){
-           console.log(`VideoCaptureError: ${err}`)
-       })
+    //    navigator.mediaDevices.getUserMedia(constraints)
+    //    .then(function(stream){
+    //         let video = document.querySelector('video');
+    //         video.srcObject=stream;
+    //         video.play();
+    //         // console.log(stream)
+    //    })
+    //    .catch(function(err){
+    //        console.log(`VideoCaptureError: ${err}`)
+    //    })
+        // use of "enumeratedevices()"
+        navigator.mediaDevices.enumerateDevices()
+        .then(function(devices){
+            console.log(devices);
+        })
+        // .catch(function(err){
+        //     console.log("Failed to load!")
+        // })
     </script>
 </body>
 </html>
