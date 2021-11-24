@@ -28,7 +28,17 @@
         // use of "enumeratedevices()"
         navigator.mediaDevices.enumerateDevices()
         .then(function(devices){
-            console.log(devices);
+            devices.filter(function(device){
+                if(device.kind ==="videoinput"){
+                    alert("Camera Found!")
+                }
+                else if(device.kind ==="audioinput"){
+                    alert("Audio Found!")
+                }
+                else{
+                    alert("Sorry, Not founded any devices!")
+                }
+            })
         })
         // .catch(function(err){
         //     console.log("Failed to load!")
